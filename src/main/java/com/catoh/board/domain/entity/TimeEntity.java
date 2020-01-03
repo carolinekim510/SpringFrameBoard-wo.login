@@ -11,7 +11,7 @@ import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @Getter
-@MappedSuperclass
+@MappedSuperclass   // inherited mapping information to child class
 @EntityListeners(AuditingEntityListener.class)
 public abstract class TimeEntity {
     @CreatedDate

@@ -1,10 +1,15 @@
 package com.catoh.board.dto;
 
 import com.catoh.board.domain.entity.BoardEntity;
-import lombok.Builder;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
+//  Used to type all of these before, but now I can add annotation to help created automatically
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class BoardDto {
     private Long id;
     private String writer;
@@ -13,6 +18,7 @@ public class BoardDto {
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
+    // this is where I can add more entity as it needed
     public BoardEntity toEntity() {
         BoardEntity build = BoardEntity.builder()
                 .id(id)
@@ -21,11 +27,10 @@ public class BoardDto {
                 .content(content)
                 .build();
         return build;
-
     }
 
     @Builder
-    public BoardDto(Long id, String title, String content, String writer, LocalDateTime createdDate, LocalDateTime modifiedDate) {
+    public BoardDto(Long id, String writer, String title, String content, LocalDateTime createdDate, LocalDateTime modifiedDate) {
         this.id = id;
         this.writer = writer;
         this.title = title;
@@ -34,3 +39,6 @@ public class BoardDto {
         this.modifiedDate = modifiedDate;
     }
 }
+
+// transfering the data information to database
+// this dto capsules all the data and transfer between contoller, service and repository
