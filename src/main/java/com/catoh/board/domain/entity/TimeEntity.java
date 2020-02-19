@@ -21,6 +21,3 @@ public abstract class TimeEntity {
     @LastModifiedDate
     private LocalDateTime modifiedDate;
 }
-
-
-// controls of create and modified date JPA

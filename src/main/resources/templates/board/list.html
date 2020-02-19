@@ -7,31 +7,27 @@
 <body>
 <!--Header-->
     <div id="header" th:insert="common/header.html"></div>
-
-<!--body-->
-
+<!--Body-->
         <a th:href="@{/post}">Click to write</a>
-<br>
 
-        <table>
-            <!--Header of the table-->
-            <thead>
-                <tr>
-                    <th class="one wide">ID</th>
-                    <th class="one wide">Title</th>
-                    <th class="one wide">Writer</th>
-                    <th class="one wide">Date</th>
-                </tr>
-            </thead>
+<!--Table of published contents-->
+    <thable>
+        <thead>
+        <tr>
+            <th class="one wide">ID</th>
+            <th class="ten wide">Title</th>
+            <th class="two wide">Writer</th>
+            <th class="three wide">Created Date</th>
+        </tr>
+        </thead>
 
-            <!--Where the data is getting pulled from-->
-            <tbody>
-            <tr th:each="board:${boardList}">
+        <tbody>
+        <tr th:each="board:${boardList}">
             <td>
                 <span th:text="${board.id}"></span>
             </td>
             <td>
-                <a th:href="@{'/post/'+${board.id}}">
+                <a th:href="@{'/post/' + ${board.id}}">
                     <span th:text="${board.title}"></span>
                 </a>
             </td>
@@ -39,11 +35,12 @@
                 <span th:text="${board.writer}"></span>
             </td>
             <td>
-                <span th:texst="${#temporals.format(board.created_date, 'yyyy-mm-dd HH:mm')}"></span>
+                <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
             </td>
-            </tr>
-            </tbody>
-        </table>
+        </tr>
+        </tbody>
+    </thable>
+
 
 <!--Footer-->
     <div id="footer" th:insert="common/footer.html"></div>

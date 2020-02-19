@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED) // settings of access level to th db. it is protected since it won't be in need to create it outside.
-@Getter     // gets getter all automatically
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Entity
 @Table(name = "board")  // name of the database inside of the database
 public class BoardEntity extends TimeEntity{

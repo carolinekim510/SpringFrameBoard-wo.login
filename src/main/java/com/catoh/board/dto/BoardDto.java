@@ -40,5 +40,5 @@ public class BoardDto {
     }
 }
 
-// transfers the data information to database
-// this dto capsules all the data and transfer between controller, service and repository
+// transfering the data information to database
+// this dto capsules all the data and transfer between contoller, service and repository

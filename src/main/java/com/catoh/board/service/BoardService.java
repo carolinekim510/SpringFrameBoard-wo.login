@@ -18,8 +18,8 @@ public class BoardService {
 
     @Transactional
     public List<BoardDto> getBoardlist() {
-        List<BoardEntity> boardEntities = boardRepository.findAll();
-        List<BoardDto> boardDtoList = new ArrayList<>();
+        List<BoardEntity> boardEntities = boardRepository.findAll();    // find all attribute of posted from db
+        List<BoardDto> boardDtoList = new ArrayList<>();                // create array list to contain all the entities from db
 
         for (BoardEntity boardEntity : boardEntities) {
             BoardDto boardDTO = BoardDto.builder()
@@ -30,12 +30,12 @@ public class BoardService {
                     .createdDate(boardEntity.getCreatedDate())
                     .build();
 
-            boardDtoList.add(boardDTO);
+            boardDtoList.add(boardDTO);                                 // adding all found entities from db into the arraylist boardDtoList
         }
-
         return boardDtoList;
     }
 
+    @Transactional
     public Long savePost(BoardDto boardDto) {
 //        save(): in charge of insert and update to db
         return boardRepository.save(boardDto.toEntity()).getId();
