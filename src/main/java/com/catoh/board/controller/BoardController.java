@@ -15,7 +15,7 @@ import java.util.List;
 public class BoardController {
     private BoardService boardService;
 
-    // List of published post
+    // List of published post (NEW CONTROLLER that took over older one)
     @GetMapping("/")
     public String list(Model model) {
         List<BoardDto> boardList = boardService.getBoardlist();
@@ -24,11 +24,17 @@ public class BoardController {
         return "/board/list.html";
     }
 
-    //  url를 잡아주는곳.  This is where all the pages are set to certain pages and redirect connections
+
+    /*  THIS IS GETTING TURNED OFF after an error occur.
+    Since there is NEW controller names list to takes it into model form, this would need to be turned off.
+    url를 잡아주는곳.  This is where all the pages are set to certain pages and redirect connections
+    --------------------------------
+
     @GetMapping("/")
     public String list() {
         return "/board/list.html";
     }
+     */
 
     @GetMapping("/post")
     public String write() {
@@ -42,4 +48,6 @@ public class BoardController {
 
         return "redirect:/";
     }
+
+
 }

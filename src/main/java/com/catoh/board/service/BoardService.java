@@ -16,6 +16,7 @@ import java.util.List;
 public class BoardService {
     private BoardRepository boardRepository;
 
+
     @Transactional
     public List<BoardDto> getBoardlist() {
         List<BoardEntity> boardEntities = boardRepository.findAll();    // find all attribute of posted from db
@@ -37,7 +38,7 @@ public class BoardService {
 
     @Transactional
     public Long savePost(BoardDto boardDto) {
-//        save(): in charge of insert and update to db
+        // save(): in charge of insert and update to db
         return boardRepository.save(boardDto.toEntity()).getId();
     }
 }

@@ -11,7 +11,7 @@
         <a th:href="@{/post}">Click to write</a>
 
 <!--Table of published contents-->
-    <thable>
+    <table>
         <thead>
         <tr>
             <th class="one wide">ID</th>
@@ -22,6 +22,7 @@
         </thead>
 
         <tbody>
+        <!-- CONTENTS !-->
         <tr th:each="board:${boardList}">
             <td>
                 <span th:text="${board.id}"></span>
@@ -35,11 +36,11 @@
                 <span th:text="${board.writer}"></span>
             </td>
             <td>
-                <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+                <span th:text="${#temporals.format(board.createdDate, 'MM-dd-yyyy')}"></span>
             </td>
         </tr>
         </tbody>
-    </thable>
+    </table>
 
 
 <!--Footer-->
