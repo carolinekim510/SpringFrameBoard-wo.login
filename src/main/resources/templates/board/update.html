@@ -7,7 +7,7 @@
 <body>
 <form th:action="@{'/post/edit/' + ${boardDto.id}}" method="post">
     <input type="hidden" name="_method" value="put"/>
-    <input type="hidden" name="id" th:valus="${boardDto.id}"/>
+    <input type="hidden" name="id" th:value="${boardDto.id}"/>
 
     Title: <input type="text" name="title" th:value="${boardDto.title}"/><br>
     Writer: <input type="text" name="writer" th:vale="${boardDto.writer}"/><br>
