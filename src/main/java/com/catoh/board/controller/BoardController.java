@@ -49,6 +49,7 @@ public class BoardController {
     }
 
     // Methods for detail, edit, delete, update
+    // Post Detail
     @GetMapping("/post/{no}")
     public String detail(@PathVariable("no") Long no, Model model) {
         BoardDto boardDTO = boardService.getPost(no);
@@ -56,6 +57,7 @@ public class BoardController {
         return "/board/detail.html";
     }
 
+    // Post editing page
     @GetMapping("/post/edit/{no}")
     public String edit(@PathVariable("no") Long no, Model model) {
         BoardDto boardDTO = boardService.getPost(no);
@@ -63,13 +65,17 @@ public class BoardController {
         return "/board/update.html";
     }
 
-    @PutMapping("/post/edit/{no}")
+
+    // update post
+    @PostMapping("/post/edit/{no}")
     public String update(BoardDto boardDTO) {
         boardService.savePost(boardDTO);
         return "redirect:/";
     }
 
-    @DeleteMapping("/post/{no}")
+
+    // erase post
+    @PostMapping("/post/{no}")
     public String delete(@PathVariable("no") Long no) {
         boardService.deletePost(no);
         return "redirect:/";

@@ -8,7 +8,7 @@
 <!--This page will show when the link of the posted title is clicked.-->
 
 <h2 th:text="${boardDto.title}"></h2>
-<p th:inline="text">Created Date :[[${#temporals.format(boardDto.createdDate, 'MM-dd-yyyy')}]]</p>
+<p th:inline="text">Date :[[${#temporals.format(boardDto.createdDate, 'MM-dd-yyyy')}]]</p>
 
 <p th:text="${boardDto.content}"></p>
 
@@ -18,9 +18,9 @@
         <button>EDIT</button>
     </a>
 
-    <form id="delete-form" th:action="@{'/post/' +${boardDto.id}}" method="post">
-        <input type="hiddne" name="_method" value="delete"/>
-        <button id="delete-btn">ERASE</button>
+    <form id="delete-form" th:action="@{'/post/' + ${boardDto.id}}" method="post">
+        <input type="hidden" name="_method" value="delete"/>
+        <button id="delete-btn">DELETE</button>
     </form>
 </div>
 

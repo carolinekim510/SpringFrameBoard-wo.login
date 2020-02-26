@@ -37,11 +37,6 @@ public class BoardService {
         return boardDtoList;
     }
 
-    @Transactional
-    public Long savePost(BoardDto boardDto) {
-        // save(): in charge of insert and update to db
-        return boardRepository.save(boardDto.toEntity()).getId();
-    }
 
     // Creating entities for boardDTO. This is will transfer the existing posting to be edit or erase
     @Transactional
@@ -58,6 +53,12 @@ public class BoardService {
                 .build();
 
         return boardDTO;
+    }
+
+    @Transactional
+    public Long savePost(BoardDto boardDto) {
+        // save(): in charge of insert and update to db
+        return boardRepository.save(boardDto.toEntity()).getId();
     }
 
     @Transactional
